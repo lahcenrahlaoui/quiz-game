@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import Quiz from "./Quiz";
 import { useFetchQuizQuery } from "../store";
-import RangePage from "./RangePage";
 
 const alreadyDisplay = [];
 function QuizPage() {
@@ -71,12 +70,9 @@ function QuizPage() {
     }
 
     return (
-        <>
-            <RangePage />
-            <div className="App">
-                <div className="inner">{content}</div>
-            </div>
-        </>
+        <div className="App">
+            <div className="inner">{content}</div>
+        </div>
     );
 }
 

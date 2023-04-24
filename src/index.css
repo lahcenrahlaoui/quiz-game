@@ -1,6 +1,6 @@
 
 :root {
-    --main-bg-color: rgb(207, 191, 186);
+    --main-bg-color: #dbeec6;
   }
   
 
@@ -10,13 +10,13 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+       
 }
 .App {
     display: flex;
-
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.495);
-    width: auto;
+
 }
 
 .inner {
@@ -70,14 +70,17 @@ body {
 
 .answer:hover {
     transform: scale(1.05);
-    background-color: rgba(160, 142, 243, 0.738);
+    background-color: #aae980;
     transition: 0.5s all;
 }
 
-@media only screen and (max-width: 991px) {
-    .App {
+@media only screen and (max-width: 1154px) {
+    .inner {
         flex-direction: column;
     }
+    body {
+        background-color: rgb(246, 0, 0);
+      }
     .question-part {
         display: flex;
         flex-direction: column;
@@ -85,15 +88,16 @@ body {
         align-items: center;
         margin-bottom: 2rem;
     }
+    
 }
 
 .loader {
     border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
+    border-top: 16px solid rgb(205, 209, 199);
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    animation: spin 2s linear infinite;
+    animation: spin 0.3s linear infinite;
 }
 
 @keyframes spin {
