@@ -1,8 +1,22 @@
+import { useRef } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const Quiz = ({ quiz, onClick, questionNumber }) => {
-    const handleClick = (e) => {
+    const correctAnswerRef = useRef();
+
+    const handleClick = async (e) => {
         const reponse = e.target.textContent === quiz.correctAnswer;
+        if (reponse) {
+            e.target.style.backgroundColor = "#77C66E";
+        } else {
+            correctAnswerRef.current.style.backgroundColor = "#77C66E";
+            e.target.style.backgroundColor = "#F4444E";
+        }
+        document.body.style.pointerEvents = "none";
+        await new Promise((res) => {
+            setTimeout(res, 1500);
+        });
+        document.body.style.pointerEvents = "auto";
 
         onClick(reponse);
     };
@@ -17,6 +31,7 @@ const Quiz = ({ quiz, onClick, questionNumber }) => {
 
     renderedAnswers.push(
         <div
+            ref={correctAnswerRef}
             key={quiz.correctAnswer}
             onClick={handleClick}
             className={`answer `}
@@ -41,6 +56,7 @@ const Quiz = ({ quiz, onClick, questionNumber }) => {
     }
     shuffleX(renderedAnswers);
 
+    // stars level
     const level = (
         <>
             {quiz.difficulty === "easy" && (
@@ -71,13 +87,11 @@ const Quiz = ({ quiz, onClick, questionNumber }) => {
         <>
             <div className="question-part">
                 <div>
-                    {questionNumber}/10 {level}{" "}
+                    {questionNumber}/10 {level}
                 </div>
-                <div className="question">
-                    {quiz.question.text}
-                </div>
+                <div className="question">{quiz.question.text}</div>
             </div>
-            
+
             <div className={`answers`}>{renderedAnswers}</div>
         </>
     );
