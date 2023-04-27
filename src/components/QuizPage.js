@@ -28,7 +28,7 @@ function QuizPage() {
     let content;
 
     if (!isFetching) {
-        console.log(data);
+
         const results = data;
 
         let randomItem;
@@ -70,8 +70,7 @@ function QuizPage() {
     }
 
     return (
-        <div className="App">
-            <div className="inner">{content}</div>
+        <div className="App"> {content} 
         </div>
     );
 }

@@ -61,7 +61,7 @@ const Quiz = ({ quiz, onClick, questionNumber }) => {
                 <>
                     <AiFillStar />
                     <AiFillStar />
-                    <AiOutlineStar />
+                    <AiFillStar />
                 </>
             )}
         </>
@@ -73,9 +73,11 @@ const Quiz = ({ quiz, onClick, questionNumber }) => {
                 <div>
                     {questionNumber}/10 {level}{" "}
                 </div>
-
-                <div className="question">{quiz.question.text}</div>
+                <div className="question">
+                    {quiz.question.text}
+                </div>
             </div>
+            
             <div className={`answers`}>{renderedAnswers}</div>
         </>
     );
